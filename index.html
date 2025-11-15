@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Mind - Редактор Lottie анимаций</title>
+    <meta name="description" content="Бесплатный онлайн редактор Lottie анимаций">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #7c3aed; --secondary: #0f172a; --text: #f1f5f9; }
+        body { font-family: Arial, sans-serif; background: #0f172a; color: #f1f5f9; }
+        .header { background: #1e293b; padding: 20px; text-align: center; border-bottom: 1px solid #334155; }
+        .logo { font-size: 28px; font-weight: bold; color: #7c3aed; margin-bottom: 10px; }
+        .main { padding: 40px 20px; text-align: center; }
+        .editor-container { max-width: 800px; margin: 0 auto; background: #1e293b; padding: 30px; border-radius: 12px; }
+        .btn { background: #7c3aed; color: white; border: none; padding: 12px 24px; margin: 10px; border-radius: 6px; cursor: pointer; font-size: 16px; }
+        .btn:hover { background: #6d28d9; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .feature { background: #0f172a; padding: 20px; border-radius: 8px; border: 1px solid #334155; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Shadow Mind</div>
+        <div style="color: #94a3b8;">Профессиональный редактор Lottie анимаций</div>
+    </header>
+    
+    <main class="main">
+        <div class="editor-container">
+            <lottie-player
+                src=""
+                background="transparent"
+                speed="1"
+                style="width: 300px; height: 300px; margin: 0 auto; background: #0f172a; border-radius: 12px;"
+                loop
+                autoplay>
+            </lottie-player>
+            
+            <div style="margin-top: 30px;">
+                <button class="btn" onclick="showTemplates()">🎨 Шаблоны</button>
+                <button class="btn" onclick="importJSON()">📁 Импорт JSON</button>
+                <button class="btn" onclick="exportAnimation()">💾 Экспорт</button>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <h3>🎭 Редактор слоев</h3>
+                    <p>Управляйте элементами анимации</p>
+                </div>
+                <div class="feature">
+                    <h3>⚙️ Свойства</h3>
+                    <p>Настройте трансформации и цвета</p>
+                </div>
+                <div class="feature">
+                    <h3>⏱️ Таймлайн</h3>
+                    <p>Создавайте ключевые кадры</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showTemplates() { 
+            alert('Доступны шаблоны: Загрузка, Успех, Ошибка, Праздник'); 
+        }
+        function importJSON() { 
+            alert('Загрузите Lottie JSON файл или вставьте код'); 
+        }
+        function exportAnimation() { 
+            alert('Анимация экспортирована в формате JSON!'); 
+        }
+        
+        // Загрузка примера анимации
+        const sampleAnimation = {
+            "v": "5.7.4", "fr": 60, "ip": 0, "op": 60, "w": 300, "h": 300,
+            "layers": [{
+                "ty": 4, "nm": "Circle",
+                "shapes": [{
+                    "ty": "el", "p": {"a": 0, "k": [0, 0]}, "s": {"a": 0, "k": [80, 80]},
+                    "nm": "Ellipse"
+                }, {
+                    "ty": "fl", "c": {"a": 0, "k": [0.486, 0.227, 0.929, 1]},
+                    "nm": "Fill"
+                }],
+                "ks": {
+                    "o": {"a": 0, "k": 100}, "r": {"a": 0, "k": 0},
+                    "p": {"a": 0, "k": [150, 150, 0]}, "a": {"a": 0, "k": [0, 0, 0]},
+                    "s": {"a": 0, "k": [100, 100, 100]}
+                }
+            }]
+        };
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const player = document.querySelector('lottie-player');
+            player.load(JSON.stringify(sampleAnimation));
+        });
+    </script>
+</body>
+</html>
